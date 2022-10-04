@@ -1,12 +1,10 @@
 import Head from 'next/head';
 
-export default function Home() {
+export default function Projects() {
   return (
     <Head>
-      <title>Nicole Haraj</title>
+      <title>Selected Works | Nicole Haraj</title>
       <meta name="description" content="Portfolio site" />
     </Head>
-
-
   );
 }
