@@ -2,13 +2,13 @@ import { useState, useRef, useEffect } from 'react';
 import { Transition, Menu } from '@headlessui/react';
 import { AiOutlineMenu } from 'react-icons/ai';
 
-export default function Hamburger({ children }) {
+export default function Hamburger({ children }: { children: any }): JSX.Element {
   const [show, setShow] = useState(false);
-  const container = useRef(null);
+  const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
-      if (!container.current.contains(e.target)) {
+      if (container.current !== null && !container.current.contains(e.target as HTMLElement)) {
         if (!show) return;
         setShow(false);
       }
