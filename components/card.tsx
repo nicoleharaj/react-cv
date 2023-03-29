@@ -1,16 +1,21 @@
-import Image from 'next/image';
+import { ReactNode } from 'react';
 
 interface CardProps {
-  title: string,
-  description: string,
-  image?: typeof Image,
+  children?: ReactNode;
+  className?: string | undefined;
 }
 
-export default function Card(CardProps) {
-  return (
-    <div className="w-1/2s bg-white p-4 shadow-md rounded">
-      <h3>{CardProps.title}</h3>
-    </div>
-  );
 
+
+export default function Card({ children, className }: CardProps) {
+  return <div className={className}>{children}</div>;
 }
+
+Card.Header = function ({ children, className }: CardProps) {
+  return <h3 className={className}>{children}</h3>;
+};
+
+Card.Body = function ({ children, className }: CardProps) {
+  return <p className={className}>{children}</p>;
+};
+

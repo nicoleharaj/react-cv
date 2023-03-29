@@ -1,33 +1,84 @@
 import Head from 'next/head';
+import Card from '../components/Card';
 import Image from 'next/image';
-import Link from 'next/link';
-import Card from '../components/card';
-import headshot from "../public/placeholder.jpg";
-import { FiSend } from "react-icons/fi";
+import { BsGithub } from 'react-icons/bs';
+import { ImLinkedin2 } from 'react-icons/im';
+import Layout, { childVariant } from '../components/Layout';
+import { motion as m } from 'framer-motion';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Home() {
   return (
-    <div className="flex-grow">
+    <Layout>
       <Head>
         <title>Nicole Haraj</title>
         <meta name="description" content="Portfolio site" />
       </Head>
-      <section className="flex flex-col justify-center items-center gap-6 lg:flex-row lg:gap-10">
-        <Image className="relative z-40" src={headshot} width="450" height="550" alt="Placeholder head shot" />
-        <div className='flex flex-col gap-2 max-w-xl'>
-          <h2 className="font-bold text-4xl">Nicole Haraj</h2>
-          <h3 className='text-lg text-gray-700'>Full Stack Developer</h3>
-          <p className='text-gray-700'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto deleniti ex quae. Cumque autem molestias aliquam est magnam recusandae, laborum, nisi id vero dignissimos aperiam alias tempora numquam odit inventore.</p>
-          <Link href="/contact"><span className="relative flex items-center gap-2 cursor-pointer py-2 px-4 rounded shadow text-white  bg-indigo-500">Get in touch <FiSend /></span></Link>
+      <m.div className="flex items-center gap-4">
+        <h1 className="font-bold text-3xl sm:text-4xl dark:text-white">Nicole Haraj</h1>
+        <ul className="flex gap-2 dark:text-black">
+          <li>
+            <a href="https://github.com/nicoleharaj" target="_blank" rel="noopener noreferrer">
+              <Card className="flex justify-center text-lg bg-white p-2 border rounded-full shadow-sm transition-transform hover:scale-105">
+                <span className="sr-only">GitHub</span>
+                <BsGithub />
+              </Card>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/nicoleharaj" target="_blank" rel="noopener noreferrer">
+              <Card className="flex justify-center text-lg bg-white p-2 border rounded-full shadow-sm transition-transform hover:scale-105">
+                <span className="sr-only">LinkedIn</span>
+                <ImLinkedin2 />
+              </Card>
+            </a>
+          </li>
+        </ul>
+      </m.div>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <Card title="Hi" />
-            <Card title="Hi" />
-            <Card title="Hi" />
-            <Card title="Hi" />
-          </div>
-        </div>
-      </section >
-    </div >
+      <m.div variants={childVariant} className='text-gray-500 font-semibold'>Full stack developer</m.div>
+      <m.p variants={childVariant} className="text-gray-700 dark:text-gray-400">
+        I'm a full stack developer based in New York. Prior to pursuing a career in software development, I worked as a systems administrator, where I gained experience managing and maintaining complex
+        computer systems.
+      </m.p>
+
+      <m.section className='mt-4'>
+        <m.h2 variants={childVariant} className="font-bold text-2xl sm:text-3xl">
+          My work
+        </m.h2>
+        <m.ul variants={childVariant} className="flex flex-col gap-8 self-center mt-4">
+          <ProjectCard>
+            <div className="flex flex-col gap-2">
+              <ProjectCard.Title>Project Title</ProjectCard.Title>
+              <ProjectCard.Description>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius perferendis aut ad est officia distinctio, eligendi nulla error. Illo placeat adipisci eveniet suscipit doloremque. Eius
+                voluptas animi illum porro vitae?
+              </ProjectCard.Description>
+            </div>
+            <Image width={600} height={400} src="https://placehold.co/600x400" alt="" />
+          </ProjectCard>
+          <ProjectCard>
+            <div className="flex flex-col gap-2">
+              <ProjectCard.Title>Project Title</ProjectCard.Title>
+              <ProjectCard.Description>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius perferendis aut ad est officia distinctio, eligendi nulla error. Illo placeat adipisci eveniet suscipit doloremque. Eius
+                voluptas animi illum porro vitae?
+              </ProjectCard.Description>
+            </div>
+            <Image width={600} height={400} src="https://placehold.co/600x400" alt="" />
+          </ProjectCard>
+          <ProjectCard>
+            <div className="flex flex-col gap-2">
+              <ProjectCard.Title>Project Title</ProjectCard.Title>
+              <ProjectCard.Description>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius perferendis aut ad est officia distinctio, eligendi nulla error. Illo placeat adipisci eveniet suscipit doloremque. Eius
+                voluptas animi illum porro vitae?
+              </ProjectCard.Description>
+            </div>
+            <Image width={600} height={400} src="https://placehold.co/600x400" alt="" />
+          </ProjectCard>
+        </m.ul>
+      </m.section>
+    </Layout>
   );
 }
