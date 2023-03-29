@@ -8,7 +8,11 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({ children, className }: ProjectCardProps) {
-  return <li className={`flex flex-col-reverse gap-6 items-center justify-center md:flex-row border-b pb-6 dark:border-b-gray-500 last:border-b-transparent dark:last:border-b-transparent ` + className}>{children}</li>;
+  return (
+    <li className={`flex flex-col-reverse gap-6 items-start justify-center md:flex-row border-b pb-6 dark:border-b-gray-500 last:border-b-transparent dark:last:border-b-transparent ` + className}>
+      {children}
+    </li>
+  );
 }
 
 ProjectCard.Title = function ({ children, className }: ProjectCardProps) {

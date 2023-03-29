@@ -6,6 +6,7 @@ import { ImLinkedin2 } from 'react-icons/im';
 import Layout, { childVariant } from '../components/Layout';
 import { motion as m } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
+import ThemeToggler from '../components/ThemeToggler';
 
 export default function Home() {
   return (
@@ -14,31 +15,34 @@ export default function Home() {
         <title>Nicole Haraj</title>
         <meta name="description" content="Portfolio site" />
       </Head>
-      <m.div className="flex items-center gap-4">
-        <h1 className="font-bold text-3xl sm:text-4xl dark:text-white">Nicole Haraj</h1>
-        <ul className="flex gap-2 dark:text-black">
-          <li>
-            <a href="https://github.com/nicoleharaj" target="_blank" rel="noopener noreferrer">
-              <Card className="flex justify-center text-lg bg-white p-2 border rounded-full shadow-sm transition-transform hover:scale-105">
-                <span className="sr-only">GitHub</span>
-                <BsGithub />
-              </Card>
-            </a>
-          </li>
-          <li>
-            <a href="https://linkedin.com/in/nicoleharaj" target="_blank" rel="noopener noreferrer">
-              <Card className="flex justify-center text-lg bg-white p-2 border rounded-full shadow-sm transition-transform hover:scale-105">
-                <span className="sr-only">LinkedIn</span>
-                <ImLinkedin2 />
-              </Card>
-            </a>
-          </li>
-        </ul>
+      <m.div className="flex justify-between">
+        <div className='flex items-center gap-4'>
+          <h1 className="font-bold text-3xl sm:text-4xl dark:text-white">Nicole Haraj</h1>
+          <ul className="flex gap-2 dark:text-black">
+            <li>
+              <a href="https://github.com/nicoleharaj" target="_blank" rel="noopener noreferrer">
+                <Card className="flex justify-center text-lg bg-white p-2 border rounded-full shadow-sm transition-transform hover:scale-105">
+                  <span className="sr-only">GitHub</span>
+                  <BsGithub />
+                </Card>
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/nicoleharaj" target="_blank" rel="noopener noreferrer">
+                <Card className="flex justify-center text-lg bg-white p-2 border rounded-full shadow-sm transition-transform hover:scale-105">
+                  <span className="sr-only">LinkedIn</span>
+                  <ImLinkedin2 />
+                </Card>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <ThemeToggler />
       </m.div>
 
       <m.div variants={childVariant} className='text-gray-500 font-semibold'>Full stack developer</m.div>
       <m.p variants={childVariant} className="text-gray-700 dark:text-gray-400">
-        I'm a full stack developer based in New York. Prior to pursuing a career in software development, I worked as a systems administrator, where I gained experience managing and maintaining complex
+        I&apos;m a full stack developer based in New York. Prior to pursuing a career in software development, I worked as a systems administrator, where I gained experience managing and maintaining complex
         computer systems.
       </m.p>
 

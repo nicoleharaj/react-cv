@@ -5,8 +5,6 @@ interface CardProps {
   className?: string | undefined;
 }
 
-
-
 export default function Card({ children, className }: CardProps) {
   return <div className={className}>{children}</div>;
 }
@@ -18,4 +16,5 @@ Card.Header = function ({ children, className }: CardProps) {
 Card.Body = function ({ children, className }: CardProps) {
   return <p className={className}>{children}</p>;
 };
+
 
