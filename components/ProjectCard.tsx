@@ -15,14 +15,14 @@ export default function ProjectCard({ children, className }: ProjectCardProps) {
   );
 }
 
-ProjectCard.Title = function ({ children, className }: ProjectCardProps) {
+ProjectCard.Title = function ProjectCardTitle({ children, className }: ProjectCardProps): JSX.Element {
   return <h2 className={`text-lg sm:text-2xl w-full font-semibold dark:text-gray-300 ` + className}>{children}</h2>;
 };
 
-ProjectCard.Description = function ({ children, className }: ProjectCardProps) {
+ProjectCard.Description = function ProjectCardDescription({ children, className }: ProjectCardProps): JSX.Element {
   return <p className={`dark:text-gray-400 ` + className}>{children}</p>;
 };
 
-ProjectCard.Image = function ({ width, src }: ImageLoaderProps) {
+ProjectCard.Image = function ProjectCardImage({ width, src }: ImageLoaderProps): JSX.Element {
   return <Image layout="fill" width={width} src={src} sizes="100vw" className="w-full h-auto" alt="" />;
 };
