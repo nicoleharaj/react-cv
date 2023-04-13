@@ -53,7 +53,7 @@ export default function Home() {
         Full stack developer
       </m.div>
       <m.p variants={childVariant} className="text-gray-500 dark:text-gray-400 -mt-2">
-        I&apos;m a full stack developer based in New York. Prior to pursuing a career in software development, I worked as a systems administrator, where I gained experience managing and maintaining
+        I&apos;m a full-stack developer based in New York. Prior to pursuing a career in software development, I worked as a systems administrator, where I gained experience managing and maintaining
         complex computer systems.
       </m.p>
 
