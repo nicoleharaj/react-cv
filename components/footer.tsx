@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="pt-8 flex flex-col items-center justify-center p-2 text-sm text-gray-700 dark:text-gray-500">
+    <footer className="pt-10 flex flex-col items-center justify-center p-2 text-sm text-gray-700 dark:text-gray-500">
       <p className="flex flex-row gap-1">
         <span className="flex  items-center">
           Made with <BsFillHeartFill className="mx-1 text-xs" /> by Nicole
