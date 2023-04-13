@@ -24,7 +24,7 @@ export default function Home() {
         <ul className="flex gap-2 dark:text-black">
           <li>
             <a href="https://github.com/nicoleharaj" target="_blank" rel="noopener noreferrer" title="GitHub">
-              <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-105">
+              <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-125">
                 <span className="sr-only">GitHub</span>
                 <BsGithub />
               </div>
@@ -32,7 +32,7 @@ export default function Home() {
           </li>
           <li>
             <a href="https://linkedin.com/in/nicoleharaj" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-              <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-105">
+              <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-125">
                 <span className="sr-only">LinkedIn</span>
                 <ImLinkedin2 />
               </div>
@@ -40,7 +40,7 @@ export default function Home() {
           </li>
           <li>
             <a href="https://github.com/nicoleharaj/react-cv/raw/main/public/nicole_haraj_cv.pdf" target="_blank" rel="noopener noreferrer" title="Download CV">
-              <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-105">
+              <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-125">
                 <span className="sr-only">Download CV</span>
                 <HiDownload />
               </div>
@@ -68,20 +68,16 @@ export default function Home() {
             <TimelineItem.Title>Junior Systems Administrator</TimelineItem.Title>
             <TimelineItem.Description className="flex flex-col gap-2">
               <div className="font-semibold text-sm">Softheon, Inc.</div>
-              <p>
-                As a junior systems administrator, I was responsible for managing and deploying servers, including Ubuntu, RHEL, and Windows servers with Hyper-V. In this role, I developed a deep
-                understanding of server management principles, including ensuring production availability and server redundancy.
-              </p>
-
-              <p>
-                In addition to server management, I also automated administrative tasks with PowerShell and Python, utilizing various APIs with Postman. This enforced the importance of automation in
-                software development.
-              </p>
-
-              <p>
-                I also worked closely with the software engineering team to ensure that our infrastructure was optimized for development and deployment. This experience gave me a strong understanding
-                of Agile/Scrum development methodologies and the importance of communication and teamwork in software development.
-              </p>
+              <ul className="list-outside list-disc ml-5">
+                <li>Procure, manage, and deploy Ubuntu, RHEL, and Windows servers with Hyper-V.</li>
+                <li>Manage Docker Engine and Docker Desktop on Azure, Ubuntu servers, and developer workstations.</li>
+                <li>Work alongside software engineering team to configure server redundancy with RabbitMQ.</li>
+                <li>Automate administrative tasks with PowerShell and Python, utilizing various APIs with Postman. </li>
+                <li>Plan, coordinate, and deploy Windows 11 upgrade program to 300+ workstations.</li>
+                <li>Manage administration and security access of 250+ users with Active Directory and Azure Active Directory.</li>
+                <li>Create, design, format, and distribute company-wide communications.</li>
+                <li>Produce daily report to notify product, development, and security teams of infrastructure health.</li>
+              </ul>
             </TimelineItem.Description>
           </TimelineItem>
 
@@ -90,12 +86,11 @@ export default function Home() {
             <TimelineItem.Title>Research Assistant</TimelineItem.Title>
             <TimelineItem.Description className="flex flex-col gap-2">
               <div className="font-semibold text-sm">Stony Brook University</div>
-              <p>
-                In my research under the computer science department, I utilized Catapult Web Page Replay to analyze network performance (number of requests, data transferred between client and
-                server, resources loaded on the webpage, load time) under different VPN conditions. These metrics were observed through Google Chrome&apos;s Developer tools and captured in a
-                controlled Ubuntu virtual machine. I gained a comprehensive understanding of VPN protocols such as OpenVPN (TCP and UDP), and state-of-the-art protocols such as NordLynx, and Lightway
-                by ExpressVPN.
-              </p>
+              <ul className="list-outside list-disc ml-5">
+                <li>Utilized Catapult Web Page Replay to analyze network performance under different VPN conditions.</li>
+                <li>Metrics were observed through Chrome&apos;s Developer tools and captured in a controlled Ubuntu virtual machine.</li>
+                <li>Gained a understanding of VPN protocols such as OpenVPN (TCP and UDP), and state-of-the-art protocols such as NordLynx, and Lightway by ExpressVPN.</li>
+              </ul>
             </TimelineItem.Description>
           </TimelineItem>
 
@@ -104,10 +99,13 @@ export default function Home() {
             <TimelineItem.Title>Teaching Assistant</TimelineItem.Title>
             <TimelineItem.Description className="flex flex-col gap-2">
               <div className="font-semibold text-sm">Stony Brook University</div>
-              <p>
-                As a teaching assistant, I led classes of 26 students while administering and grading object-oriented Java programming assignments. I also held office hours twice a week to reinforce
-                course materials while helping students reach their learning objectives in a small group or one-on-one session.
-              </p>
+
+              <ul className="list-outside list-disc ml-5">
+                <li>Led classes of 26 students where object-oriented Java programming assignments were administered and graded.</li>
+                <li>Held office hours twice a week to reinofrce course materials to help students reach their learning objectives.</li>
+                <li>Recorded and updated numerical data relating to student grades in Microsoft Excel and university website</li>
+                <li>Effectively communicated with both students and professor to relay information related to course logistics, student performance, expectations, and concerns.</li>
+              </ul>
             </TimelineItem.Description>
           </TimelineItem>
         </m.ol>
@@ -149,15 +147,18 @@ export default function Home() {
         <m.h2 variants={childVariant} className="font-bold text-2xl mb-4 sm:text-3xl">
           Projects
         </m.h2>
-        <m.ul variants={childVariant} className="flex flex-col gap-8 self-center">
+        <m.ul variants={childVariant} className="flex flex-col gap-8">
           <ProjectCard>
             <div className="flex flex-col gap-2">
               <ProjectCard.Title className="flex items-center gap-4">
                 Discord Bot <Badge>Rust</Badge>
               </ProjectCard.Title>
               <ProjectCard.Description>
-                Created an interactive Discord bot using Rust and the Serenity library for the Discord API to manage and store user statistics and achievements. Designed the bot with user-driven event
-                handling features and utilized Amazon DynamoDB for real-time data access. Packaged the bot using Docker and deployed it to AWS Fargate, enabling easy management and scalability.
+                <ul className="list-outside list-disc ml-5">
+                  <li>Used Rust, Serenity library for Discord API, and DynamoDB to create, manage, and store user statistics and achievements.</li>
+                  <li>Interactive bot with user-driven event handling features.</li>
+                  <li>Packaged with Docker and hosted on AWS Fargate.</li>
+                </ul>
               </ProjectCard.Description>
             </div>
           </ProjectCard>
@@ -167,10 +168,14 @@ export default function Home() {
                 React Notes <Badge>TypeScript</Badge> <Badge>React</Badge> <Badge>Nextjs</Badge>
               </ProjectCard.Title>
               <ProjectCard.Description>
-                Developed a full-stack note-taking application using TypeScript and MongoDB. Users can create, modify, and delete notes that support markdown, and are filterable by tags. The front-end of the application was built using the Next.js React framework and deployed with Vercel. 
+                <ul className="list-outside list-disc ml-5">
+                  <li>Used TypeScript and MongoDB to create a full-stack note-taking application.</li>
+                  <li>Allows users to create, modify, and delete (CRUD) markdown-supported notes with filterable tags.</li>
+                  <li>Built using the Next.js React framework and hosted on Vercel.</li>
+                </ul>
               </ProjectCard.Description>
             </div>
-          </ProjectCard>
+          </ProjectCard>         
         </m.ul>
       </m.section>
     </Layout>
