@@ -14,7 +14,7 @@ export default function Home() {
     <Layout>
       <Head>
         <title>Nicole Haraj</title>
-        <meta name="description" content="Portfolio site" />
+        <meta name="description" content="An online CV for Nicole Haraj" />
       </Head>
 
       <Header />
