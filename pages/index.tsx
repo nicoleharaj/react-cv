@@ -39,7 +39,7 @@ export default function Home() {
             </a>
           </li>
           <li>
-            <a href="https://linkedin.com/in/nicoleharaj" target="_blank" rel="noopener noreferrer" title="Download CV">
+            <a href="https://github.com/nicoleharaj/react-cv/raw/main/public/nicole_haraj_cv.pdf" target="_blank" rel="noopener noreferrer" title="Download CV">
               <div className="flex justify-center text-md bg-white p-1 border rounded-full shadow-sm transition-transform hover:scale-105">
                 <span className="sr-only">Download CV</span>
                 <HiDownload />
