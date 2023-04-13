@@ -1,8 +1,8 @@
 import '../styles/globals.css';
 import { AppProps } from 'next/app';
-import Footer from '../components/Footer';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
+import Footer from '../components/Footer';
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
