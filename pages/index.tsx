@@ -102,7 +102,7 @@ export default function Home() {
 
               <ul className="list-outside list-disc ml-5">
                 <li>Led classes of 26 students where object-oriented Java programming assignments were administered and graded.</li>
-                <li>Held office hours twice a week to reinofrce course materials to help students reach their learning objectives.</li>
+                <li>Held office hours twice a week to reinforce course materials to help students reach their learning objectives.</li>
                 <li>Recorded and updated numerical data relating to student grades in Microsoft Excel and university website</li>
                 <li>Effectively communicated with both students and professor to relay information related to course logistics, student performance, expectations, and concerns.</li>
               </ul>
