@@ -7,18 +7,22 @@ const links = [
   {
     label: "LinkedIn",
     href: "https://linkedin.com/in/nicoleharaj/",
+    title: "View LinkedIn profile",
   },
   {
     label: "GitHub",
     href: "https://github.com/nicoleharaj",
+    title: "View GitHub profile",
   },
   {
     label: "Email",
     href: "mailto:nicoleharaj@outlook.com",
+    title: "Email",
   },
   {
     label: "Resume",
     href: "https://github.com/nicoleharaj/react-cv/raw/main/public/nicole_haraj_cv.pdf",
+    title: "Download resume",
   },
 ];
 
@@ -82,6 +86,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-inherit transition-colors hover:text-jungle-green-500"
+                title={link.title}
               >
                 {link.label === "LinkedIn" ? (
                   <>
