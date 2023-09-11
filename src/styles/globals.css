@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/ibm-plex-sans/IBMPlexSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/ibm-plex-sans/IBMPlexSans-Italic.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/ibm-plex-sans/IBMPlexSans-SemiBold.ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/ibm-plex-sans/IBMPlexSans-SemiBoldItalic.ttf");
+  font-weight: 600;
+  font-style: italic;
+}
+
+:root {
+  --transition-links: width 0.2s ease-in-out;
+}
+
+body {
+  @apply flex min-h-screen flex-col items-center justify-between overflow-hidden;
+}
+
+::selection {
+  @apply bg-jungle-green-300;
+}
+
+.active-link,
+.inactive-link {
+  @apply relative;
+}
+
+.active-link::before,
+.inactive-link::before {
+  @apply absolute bottom-[-2px] h-[3px];
+  content: "";
+  transition: var(--transition-links);
+}
+
+.active-link::before {
+  @apply w-full bg-off-black;
+}
+
+.inactive-link::before {
+  @apply w-0 bg-jungle-green-500;
+}
+
+.active-link::before,
+.inactive-link:hover::before {
+  @apply w-full;
+}
+
+.external-link,
+.external-link-alt {
+  @apply relative flex w-fit font-semibold;
+}
+
+.external-link {
+  @apply items-center justify-center;
+}
+
+.external-link::after {
+  content: "\2192";
+  @apply text-xl opacity-0 transition-all;
+}
+
+.external-link:hover::after {
+  @apply ml-2 opacity-100;
+}
+
+.external-link-alt {
+  @apply relative;
+}
+.external-link-alt::before {
+  content: "";
+  @apply absolute bottom-0 h-[2px] w-0 bg-off-black;
+  transition: var(--transition-links);
+}
+
+.external-link-alt:hover::before {
+  @apply w-full;
+}
+
+.card-transition {
+  transition-property: box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
