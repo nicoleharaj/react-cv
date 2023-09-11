@@ -4,6 +4,8 @@ import { api } from "~/utils/api";
 import { useRouter } from "next/router";
 import Tag from "~/components/Tag";
 import { motion as m } from "framer-motion";
+import Custom404 from "~/pages/404";
+import { Icon } from "@iconify/react";
 
 const MotionContainer = m(Container);
 const MotionTag = m(Tag);
@@ -44,50 +46,72 @@ export default function Work() {
 
   return (
     <>
-      <Head>
-        <title>{project.data?.title} - Nicole Haraj</title>
-        <meta name="description" content="An online CV for Nicole Haraj" />
-      </Head>
-      {project.data && (
-        <MotionContainer
-          className="gap-5"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <h2 className="text-4xl font-semibold sm:text-5xl">
-            {project.data.title}
+      {project.isLoading && (
+        <Container>
+          <h2 className="flex items-center gap-4 text-4xl font-semibold sm:text-5xl">
+            Looking for project
+            <Icon
+              icon="svg-spinners:90-ring-with-bg"
+              className="text-4xl"
+              aria-hidden
+            />
           </h2>
-          <m.div
-            className="flex gap-2"
-            variants={tagGroup}
+        </Container>
+      )}
+
+      {project.isError && (
+        <>
+          <Custom404 />
+        </>
+      )}
+
+      {project.data && (
+        <>
+          <Head>
+            <title>{project.data?.title} - Nicole Haraj</title>
+            <meta name="description" content="An online CV for Nicole Haraj" />
+          </Head>
+
+          <MotionContainer
+            className="gap-5"
+            variants={container}
             initial="hidden"
             animate="visible"
           >
-            {project.data.technologies.map((technology) => (
-              <MotionTag
-                key={technology.id}
-                name={technology.name}
-                variants={item}
-              />
-            ))}
-          </m.div>
-          <m.p className="mt-5 text-lg" variants={item}>
-            {project.data.description}
-          </m.p>
-
-          {project.data.url && (
-            <m.a
-              href={project.data.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="external-link"
-              variants={item}
+            <h2 className="text-4xl font-semibold sm:text-5xl">
+              {project.data.title}
+            </h2>
+            <m.div
+              className="flex gap-2"
+              variants={tagGroup}
+              initial="hidden"
+              animate="visible"
             >
-              Check out this project
-            </m.a>
-          )}
-        </MotionContainer>
+              {project.data.technologies.map((technology) => (
+                <MotionTag
+                  key={technology.id}
+                  name={technology.name}
+                  variants={item}
+                />
+              ))}
+            </m.div>
+            <m.p className="mt-5 text-lg" variants={item}>
+              {project.data.description}
+            </m.p>
+
+            {project.data.url && (
+              <m.a
+                href={project.data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="external-link"
+                variants={item}
+              >
+                Check out this project
+              </m.a>
+            )}
+          </MotionContainer>
+        </>
       )}
     </>
   );
