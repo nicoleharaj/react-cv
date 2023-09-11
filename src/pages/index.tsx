@@ -18,7 +18,7 @@ const links = [
   },
   {
     label: "Resume",
-    href: "mailto:nicoleharaj@outlook.com",
+    href: "https://github.com/nicoleharaj/react-cv/raw/main/public/nicole_haraj_cv.pdf",
   },
 ];
 
@@ -43,6 +43,16 @@ const item = {
   },
 };
 
+const linkGroup = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 export default function Home() {
   return (
     <>
@@ -58,43 +68,62 @@ export default function Home() {
         initial="hidden"
         animate="visible"
       >
-        <h2 className="text-4xl font-semibold sm:text-5xl">
-          About Me
-        </h2>
-        <m.ul className="flex -mt-2 gap-5" variants={item}>
+        <h2 className="text-4xl font-semibold sm:text-5xl">About Me</h2>
+        <m.ul
+          className="-mt-2 flex gap-5"
+          variants={linkGroup}
+          initial="hidden"
+          animate="visible"
+        >
           {links.map((link) => (
-            <li key={link.href} className="text-2xl">
+            <m.li key={link.href} className="text-2xl" variants={item}>
               <a
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-inherit transition-colors  hover:text-jungle-green-600"
+                className="text-inherit transition-colors hover:text-jungle-green-500"
               >
                 {link.label === "LinkedIn" ? (
                   <>
-                    <Icon icon="bxl:linkedin" />
+                    <Icon
+                      icon="bxl:linkedin"
+                      className="transition-transform hover:scale-110"
+                      aria-hidden="true"
+                    />
                     <span className="sr-only">{link.label}</span>
                   </>
                 ) : link.label === "GitHub" ? (
                   <>
-                    <Icon icon="bxl:github" />
+                    <Icon
+                      icon="bxl:github"
+                      className="transition-transform hover:scale-110"
+                      aria-hidden="true"
+                    />
                     <span className="sr-only">{link.label}</span>
                   </>
                 ) : link.label === "Email" ? (
                   <>
-                    <Icon icon="mdi:email-heart-outline" />
+                    <Icon
+                      icon="mdi:email-heart-outline"
+                      className="transition-transform hover:scale-110"
+                      aria-hidden="true"
+                    />
                     <span className="sr-only">{link.label}</span>
                   </>
                 ) : link.label === "Resume" ? (
                   <>
-                    <Icon icon="ic:round-download" />
+                    <Icon
+                      icon="ic:round-download"
+                      className="transition-transform hover:scale-110"
+                      aria-hidden="true"
+                    />
                     <span className="sr-only">{link.label}</span>
                   </>
                 ) : (
                   `${link.label}`
                 )}
               </a>
-            </li>
+            </m.li>
           ))}
         </m.ul>
         <m.p className="mt-5 text-lg md:text-xl" variants={item}>

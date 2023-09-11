@@ -69,7 +69,7 @@ body {
 }
 
 .external-link {
-  @apply items-center justify-center;
+  @apply items-center justify-center transition-colors;
 }
 
 .external-link::after {
@@ -86,7 +86,7 @@ body {
 }
 .external-link-alt::before {
   content: "";
-  @apply absolute bottom-0 h-[2px] w-0 bg-off-black;
+  @apply absolute bottom-0 h-[2px] w-0;
   transition: var(--transition-links);
 }
 
