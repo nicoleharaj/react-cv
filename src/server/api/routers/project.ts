@@ -2,6 +2,7 @@ import { Prisma } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { prisma } from "~/server/db";
 
 const defaultProjectSelect = Prisma.validator<Prisma.ProjectSelect>()({
   id: true,
@@ -22,11 +23,11 @@ export const projectRouter = createTRPCRouter({
         cursor: z.string().nullish(),
       })
     )
-    .query(async ({ ctx, input }) => {
+    .query(async ({ input }) => {
       const limit = input.limit ?? 50;
       const { cursor } = input;
 
-      const items = await ctx.prisma.project.findMany({
+      const items = await prisma.project.findMany({
         select: defaultProjectSelect,
         take: limit + 1,
         where: {},
@@ -57,10 +58,10 @@ export const projectRouter = createTRPCRouter({
         slug: z.string(),
       })
     )
-    .query(async ({ ctx, input }) => {
+    .query(async ({ input }) => {
       const { slug } = input;
 
-      const project = await ctx.prisma.project.findUnique({
+      const project = await prisma.project.findUnique({
         select: defaultProjectSelect,
         where: { slug },
       });
