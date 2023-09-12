@@ -1,29 +1,26 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider  = "postgresql"
-    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Technology {
-    id       String    @id @default(cuid())
-    projects Project[]
-    name     String    @unique
+  id       String    @id @default(cuid())
+  name     String    @unique
+  projects Project[] @relation("ProjectToTechnology")
 }
 
 model Project {
-    id           String       @id @default(cuid())
-    title        String       @unique
-    description  String
-    thumbnail    String
-    url          String?
-    technologies Technology[]
-    createdAt    DateTime     @default(now())
-    slug         String       @unique
+  id           String       @id @default(cuid())
+  title        String       @unique
+  description  String
+  thumbnail    String
+  url          String?
+  createdAt    DateTime     @default(now())
+  slug         String       @unique
+  technologies Technology[] @relation("ProjectToTechnology")
 }

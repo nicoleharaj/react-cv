@@ -41,77 +41,69 @@ const tagGroup = {
 export default function Work() {
   const slug = useRouter().query.slug as string;
 
-  if (slug !== undefined) {
-    const projectQuery = api.project.bySlug.useQuery(
-      { slug: slug },
-      {
-        retry: false,
-      }
-    );
-    const project = { ...projectQuery };
+  if (slug === undefined) {
+    return <Container />;
+  }
 
-    return (
-      <>
-        {project.isError && (
-          <>
-            <Custom404 />
-          </>
-        )}
+  const projectQuery = api.project.bySlug.useQuery({ slug: slug });
+  const project = { ...projectQuery };
 
-        {project.data && (
-          <>
-            <Head>
-              <title>{project.data?.title} - Nicole Haraj</title>
-              <meta
-                name="description"
-                content="An online CV for Nicole Haraj"
-              />
-            </Head>
+  return (
+    <>
+      {project.isError && (
+        <>
+          <Custom404 />
+        </>
+      )}
 
-            <MotionContainer
-              className="gap-5"
-              variants={container}
+      {project.data && (
+        <>
+          <Head>
+            <title>{project.data?.title} - Nicole Haraj</title>
+            <meta name="description" content="An online CV for Nicole Haraj" />
+          </Head>
+
+          <MotionContainer
+            className="gap-5"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            <h2 className="text-4xl font-semibold sm:text-5xl">
+              {project.data.title}
+            </h2>
+            <m.div
+              className="flex gap-2"
+              variants={tagGroup}
               initial="hidden"
               animate="visible"
             >
-              <h2 className="text-4xl font-semibold sm:text-5xl">
-                {project.data.title}
-              </h2>
-              <m.div
-                className="flex gap-2"
-                variants={tagGroup}
-                initial="hidden"
-                animate="visible"
-              >
-                {project.data.technologies.map((technology) => (
-                  <MotionTag
-                    key={technology.id}
-                    name={technology.name}
-                    variants={item}
-                  />
-                ))}
-              </m.div>
-              <m.p className="mt-5 text-lg" variants={item}>
-                {project.data.description}
-              </m.p>
-
-              {project.data.url && (
-                <m.a
-                  href={project.data.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="external-link"
+              {project.data.technologies.map((technology) => (
+                <MotionTag
+                  key={technology.id}
+                  name={technology.name}
                   variants={item}
-                >
-                  Check out this project
-                </m.a>
-              )}
-            </MotionContainer>
-          </>
-        )}
-      </>
-    );
-  }
+                />
+              ))}
+            </m.div>
+            <m.p className="mt-5 text-lg" variants={item}>
+              {project.data.description}
+            </m.p>
 
-  return <></>;
+            {project.data.url && (
+              <m.a
+                href={project.data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="external-link"
+                variants={item}
+              >
+                Check out this project
+              </m.a>
+            )}
+          </MotionContainer>
+        </>
+      )}
+    </>
+  );
 }
