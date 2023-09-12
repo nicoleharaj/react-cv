@@ -134,7 +134,7 @@ export default function Home() {
         <m.p className="mt-5 text-lg md:text-xl" variants={item}>
           I&apos;m a Full Stack Engineer based in New York. My experience spans
           software development and systems administration, where I have gained a
-          perspective on user experience, availabiltiy, security, and
+          perspective on user experience, availability, security, and
           efficiency.
         </m.p>
         <m.p className="text-lg md:text-xl" variants={item}>
