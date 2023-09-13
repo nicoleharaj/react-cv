@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import Tag from "~/components/Tag";
 import { motion as m } from "framer-motion";
 import Custom404 from "~/pages/404";
-import { Icon } from "@iconify/react";
 
 const MotionContainer = m(Container);
 const MotionTag = m(Tag);
@@ -41,24 +40,16 @@ const tagGroup = {
 
 export default function Work() {
   const slug = useRouter().query.slug as string;
-  const projectQuery = api.project.bySlug.useQuery({ slug: slug });
+  const projectQuery = api.project.bySlug.useQuery(
+    { slug: slug },
+    {
+      retry: 0,
+    }
+  );
   const project = { ...projectQuery };
 
   return (
     <>
-      {project.isLoading && (
-        <Container>
-          <h2 className="flex items-center gap-4 text-4xl font-semibold sm:text-5xl">
-            Looking for project
-            <Icon
-              icon="svg-spinners:90-ring-with-bg"
-              className="text-4xl"
-              aria-hidden
-            />
-          </h2>
-        </Container>
-      )}
-
       {project.isError && (
         <>
           <Custom404 />

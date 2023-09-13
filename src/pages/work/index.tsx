@@ -42,6 +42,7 @@ export default function Work() {
 
       <Container>
         <h2 className="text-4xl font-semibold md:text-5xl">My work</h2>
+
         {projectQuery.data?.pages.map((page, index) => (
           <m.ul
             className="flex w-full flex-wrap items-center justify-center gap-5"

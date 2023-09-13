@@ -14,7 +14,7 @@ const MyApp: AppType = ({ Component, pageProps: { ...pageProps } }) => {
       <Navbar />
       <AnimatePresence mode="popLayout">
         <motion.div
-          className="flex-grow text-off-black"
+          className="w-[calc(100vw-2.5rem)] max-w-screen-lg flex-grow text-off-black"
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
