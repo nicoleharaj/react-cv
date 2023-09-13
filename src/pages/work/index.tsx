@@ -53,23 +53,21 @@ export default function Work() {
             key={index}
           >
             {page.items.map((project, index) => (
-              <>
-                <m.li
-                  key={project.id ?? index}
-                  variants={projectItem}
-                  className="relative h-48 w-48"
-                >
-                  <Link href={`/work/${project.slug}`}>
-                    <span className="sr-only">{project.title}</span>
-                    <Image
-                      fill
-                      src={project.thumbnail}
-                      alt={`${project.title} thumbnail`}
-                      className="card-transition shadow-md hover:z-50 hover:scale-105 hover:shadow-xl"
-                    />
-                  </Link>
-                </m.li>
-              </>
+              <m.li
+                key={project.id ?? index}
+                variants={projectItem}
+                className="relative h-48 w-48"
+              >
+                <Link href={`/work/${project.slug}`}>
+                  <span className="sr-only">{project.title}</span>
+                  <Image
+                    fill
+                    src={project.thumbnail}
+                    alt={`${project.title} thumbnail`}
+                    className="card-transition shadow-md hover:z-50 hover:scale-105 hover:shadow-xl"
+                  />
+                </Link>
+              </m.li>
             ))}
           </m.ul>
         ))}
